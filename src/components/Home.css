@@ -1,0 +1,233 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+.header2 {
+  margin-left: 35px;
+
+}
+
+.responsive-view{
+  display: flex;
+}
+
+.responsive-view-card{
+  margin-right: 10px 
+}
+
+.TaskBoardWrapper {
+  margin: 40px;
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+}
+
+.filterInput {
+  height: 40px;
+  width: 150px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.filterInput1 {
+  height: 35px;
+  width: 150px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.filterInput2 {
+  height: 40px;
+  width: 150px;
+  margin-right: 10px;
+
+}
+
+.AddTaskButton {
+  background-color: #3944BC;
+  width: 150px;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 315px;
+}
+
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background-color: white;
+}
+
+.modalTitle {
+  color: #333;
+  font-size: 60px;
+}
+
+.modalClose {
+  cursor: pointer;
+}
+
+.taskForm {
+  background-color: pink;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.taskForm input,
+.taskForm select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.taskForm button {
+  background-color: #3944bc;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 140px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.accountmodal {
+  position: absolute;
+  top: 87%;
+  left: 94%;
+  background-color: #f9f9f9;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+
+
+
+
+
+@media screen and (min-width: 300px) and (max-width: 1190px) {
+  .TaskBoardWrapper {
+    width: calc(100% - 20px);
+    margin: 10px auto;
+  }
+
+  .filterInput1 {
+    height: 35px;
+    width: 100px;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+
+  .filterInput {
+    width: 100%;
+
+    @media screen and (min-width: 300px) and (max-width: 365px) {
+      margin-left: 25px !important;
+
+    }
+  }
+
+  .filterInput2 {
+    width: 100%;
+  }
+
+  .header,
+  .header2 {
+    margin-left: 25px;
+  }
+
+
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+
+    .responsive-view {
+    display: block;
+    }
+
+  }
+
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+
+    .responsive-view-card {
+   
+   margin-bottom: 10px;
+    }
+
+  }
+
+
+
+  @media screen and (min-width: 300px) and (max-width: 550px) {
+
+    .accountmodal {
+      top: 76%;
+      left: 83%;
+    }
+
+  }
+
+  @media screen and (min-width: 551px) and (max-width: 750px) {
+    .accountmodal {
+      top: 82%;
+      left: 89%;
+    }
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 1190px) {
+    .accountmodal {
+      top: 82%;
+      left: 92%;
+    }
+  }
+
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    .dateRangePickerContainer {
+      margin-left: 25px !important;
+      width: 100px;
+      
+    }
+  }
+
+  @media screen and (min-width: 500px) and (max-width: 680px) {
+    .dateRangePickerContainer {
+      width: 100px;
+    }
+  }
+  
+
+  .AddTaskButton {
+    margin-left: auto;
+    width: auto;
+
+    @media screen and (min-width: 300px) and (max-width: 600px) {
+      margin-left: 85px !important;
+
+    }
+
+
+
+    @media screen and (min-width: 601px) and (max-width: 999px) {
+      margin-left: 35px !important;
+
+    }
+  }
+
+  
+
+}
