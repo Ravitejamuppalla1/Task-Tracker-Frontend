@@ -170,10 +170,10 @@ const Home = (props) => {
             filters.Assignees = filterAssignee;
         }
 
-        if (startDate !== 'Invalid Date' && endDate !== 'Invalid Date') {
+        if (startDate !== '' && endDate !== '') {
             filters.startDate = startDate;
             filters.EndDate = endDate;
-        } else if (startDate !== 'Invalid Date' && endDate == 'Invalid Date') {
+        } else if (startDate !== '' && endDate == '') {
             filters.startDate = startDate;
         }
 
