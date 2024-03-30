@@ -25,7 +25,7 @@ Technologies Used
 
 Project Structure
 
-        /DevTown-Frontend
+        /Task-Tracker-Frontend
            /src
                /actions
                    - userActions.js
