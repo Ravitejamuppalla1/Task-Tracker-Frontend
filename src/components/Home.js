@@ -28,7 +28,6 @@ const Home = (props) => {
     const [startDate, setStartDate] = useState('')
     const [endDate, setEndDate] = useState('')
     const [startDateValue, setStartDateValue] = useState([null, null])
-    const [endDateValue, setEndDateValue] = useState(null)
     const [showFormErrors, setShowFormErrors] = useState(false)
     const [formErrors, setformErrors] = useState({});
     const [taskData, setTaskData] = useState([])
@@ -40,6 +39,8 @@ const Home = (props) => {
     const [filterPriority, setFilterPriority] = useState('0')
     const [filterAssignee, setFilterAssignee] = useState('')
     const [showLogOut, setShowLogOut] = useState(false)
+    const [filter, setFilter] = useState(false)
+
 
     const errors = {}
     const dispatch = useDispatch()
@@ -124,17 +125,37 @@ const Home = (props) => {
         setStatus(e.target.value)
     }
 
+    
+const priorityMap = {
+    "P0": 3,
+    "P1": 2,
+    "P2": 1
+}
+
     const handleSortPriorityChange = (e) => {
-        if (e.target.value == '0') {
-            dispatch(asyncGetTasks())
+        const selectedSortPriority = parseInt(e.target.value)
+    
+        if (filter) {
+            if (selectedSortPriority !== 0) {
+                const sortedData = taskData.data.sort((taskA, taskB) => {
+                    const priorityValueA = priorityMap[taskA.Priority]
+                    const priorityValueB = priorityMap[taskB.Priority]
+                    return selectedSortPriority === -1 ? priorityValueB - priorityValueA : priorityValueA - priorityValueB
+                })
+                setTaskData({ ...taskData, data: sortedData })
+            }
+        } else {
+            if (selectedSortPriority === 0) {
+                dispatch(asyncGetTasks())
+            } else {
+                dispatch(asyncSort({ sortOrder: selectedSortPriority }))
+            }
         }
-        else {
-            dispatch(asyncSort({ sortOrder: parseInt(e.target.value) }))
-        }
-        setSortPriority(e.target.value)
-    }
+        setSortPriority(selectedSortPriority); 
+    };
 
     const handleFilterPriorityChange = (e) => {
+        setFilter(true)
         setFilterPriority(e.target.value)
 
     };
@@ -143,6 +164,7 @@ const Home = (props) => {
 
     const handleDateChange = (range) => {
         setStartDateValue(range)
+        setFilter(true)
         const startDateFormatted = dayjs(range[0]).format('YYYY-MM-DD');
         const endDateFormatted = dayjs(range[1]).format('YYYY-MM-DD');
         setStartDate(startDateFormatted);
@@ -152,7 +174,8 @@ const Home = (props) => {
 
 
     const handleFilterAssigneeChange = (e) => {
-        setFilterAssignee(e.target.value)
+        setFilter(true)
+       setFilterAssignee(e.target.value)
     };
 
     useEffect(() => {
@@ -222,10 +245,11 @@ const Home = (props) => {
         setFilterPriority('')
         setStartDate('')
         setEndDate('')
+        setFilter(false)
         setStartDateValue([null, null])
+        setSortPriority('0')
 
-
-    }
+ }
 
 
 
