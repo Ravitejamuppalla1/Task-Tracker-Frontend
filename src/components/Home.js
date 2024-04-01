@@ -134,6 +134,9 @@ const priorityMap = {
 
     const handleSortPriorityChange = (e) => {
         const selectedSortPriority = parseInt(e.target.value)
+        
+        setSortPriority(selectedSortPriority); 
+
     
         if (filter) {
             if (selectedSortPriority !== 0) {
@@ -151,7 +154,6 @@ const priorityMap = {
                 dispatch(asyncSort({ sortOrder: selectedSortPriority }))
             }
         }
-        setSortPriority(selectedSortPriority); 
     };
 
     const handleFilterPriorityChange = (e) => {
@@ -428,7 +430,7 @@ const priorityMap = {
                         <Grid item style={{ marginTop: '10px', marginLeft: '13px' }}>
                             <select id="priority" className="filterInput2" value={sortPriority} onChange={handleSortPriorityChange}>
                                 <option value='0'>Priority</option>
-                                <option value="+1">Low to High</option>
+                                <option value="1">Low to High</option>
                                 <option value="-1">High to low</option>
                             </select>
                         </Grid>
